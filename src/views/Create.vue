@@ -12,7 +12,7 @@
         <div class="chips" ref="chips"></div>
         <div class="input-field">
           <textarea v-model="description" id="description" class="materialize-textarea"></textarea>
-          <label for="description">Textarea</label>
+          <label for="description">Description</label>
           <span class="character-counter" style="float: right; font-size: 12px;">{{description.length}}/2048</span>
         </div>
 
@@ -56,7 +56,8 @@ export default {
         tags: this.chips.chipsData,
         date: this.date.date
       }
-      console.log(task)
+      this.$store.dispatch('createTask', task)
+      this.$router.push('/list')
     }
   },
   destroyed() {
